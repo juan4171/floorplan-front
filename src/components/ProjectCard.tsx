@@ -14,7 +14,6 @@ export default function BasicCard({ project }: Props) {
 
     const handleDelete = async (id: string) => {
         await deleteProject(id);
-        // Refetch data
         window.location.reload();
     };
 
@@ -36,7 +35,7 @@ export default function BasicCard({ project }: Props) {
                         {project.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {project.organization}
+                        Id: {project._id}
                     </Typography>
                 </>
             </CardContent>

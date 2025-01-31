@@ -3,6 +3,7 @@ import { Project } from '../hooks/interfaces';
 import BasicCard from './ProjectCard';
 import { Button, List, ListItem } from '@mui/material';
 import CreateProjectModal from './modal/CreateProjectModal';
+import { useLocation } from 'react-router-dom';
 
 interface Props {
     projects: Project[];
@@ -11,6 +12,8 @@ interface Props {
 const ProjectList: React.FC<Props> = ({ projects }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
+    const { pathname } = useLocation()
+    const currentOrganizationId = pathname.split('/')[3]
 
     const handleCreate = () => {
         setSelectedProject(undefined);
@@ -30,11 +33,10 @@ const ProjectList: React.FC<Props> = ({ projects }) => {
 
     return (
         <div>
-            <h2>Projects</h2>
-            <h3>Create a new project</h3>
-            <Button size="small" onClick={handleCreate}>Crear nuevo proyecto</Button>
-            
+            <h2>Organization:</h2>
+            <h2>{currentOrganizationId}</h2>
             <h3>Projects:</h3>
+            <Button size="small" onClick={handleCreate}>Crear nuevo proyecto</Button>
             <List>
                 {projects.map(pro => (
                     <ListItem key={pro._id}>
@@ -46,6 +48,7 @@ const ProjectList: React.FC<Props> = ({ projects }) => {
                 open={modalOpen}
                 setOpen={setModalOpen}
                 onCreate={handleSave}
+                organization={currentOrganizationId}
             />
         </div>
     );

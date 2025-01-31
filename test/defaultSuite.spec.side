@@ -1,0 +1,42 @@
+{
+  "id": "defaultSuite",
+  "name": "Default Suite",
+  "tests": [
+    {
+      "id": "01-view-projects",
+      "name": "01-view-projects",
+      "commands": [
+        {
+          "id": "1",
+          "comment": "",
+          "command": "open",
+          "target": "http://localhost:5173/",
+          "value": ""
+        },
+        {
+          "id": "2",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1936x1056",
+          "value": ""
+        },
+        {
+          "id": "3",
+          "comment": "",
+          "command": "click",
+          "target": "css=.MuiListItem-root:nth-child(2) .MuiTypography-root",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "defaultSuite",
+      "name": "Default Suite",
+      "tests": ["01-view-projects"]
+    }
+  ],
+  "urls": ["http://localhost:5173/"],
+  "plugins": []
+}

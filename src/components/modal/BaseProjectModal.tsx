@@ -54,6 +54,7 @@ const BaseProjectModal: React.FC<Props> = ({ open, setOpen, project, onSave, tit
 
     const handleSave = () => {
         onSave(formState);
+        window.location.reload();
         handleClose();
     };
 
@@ -91,16 +92,7 @@ const BaseProjectModal: React.FC<Props> = ({ open, setOpen, project, onSave, tit
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                 />
-                <TextField
-                    margin="dense"
-                    label="Organization"
-                    type="text"
-                    fullWidth
-                    variant="standard"
-                    value={formState.organization}
-                    onChange={(e) => setFormState({ ...formState, organization: e.target.value })}
-                />
-                {/* Añadir más campos según sea necesario */}
+                
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>

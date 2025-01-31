@@ -7,10 +7,12 @@ interface Props {
     open: boolean;
     setOpen: (value: boolean) => void;
     onCreate: (project: Project) => void;
+    organization: string;
 }
 
-const CreateProjectModal: React.FC<Props> = ({ open, setOpen, onCreate }) => {
+const CreateProjectModal: React.FC<Props> = ({ open, setOpen, onCreate, organization }) => {
     const handleCreate = async (project: Project) => {
+        project.organization = organization;
         const newProject = await createProject(project);
         onCreate(newProject);
     };

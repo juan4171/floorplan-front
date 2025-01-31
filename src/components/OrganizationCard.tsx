@@ -56,10 +56,13 @@ export default function BasicCard({organization}: Props) {
                     {organization.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {organization.direccion}
+                    Id: {organization._id}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {organization.contacto}
+                    Direc: {organization.direccion}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    contact: {organization.contacto}
                 </Typography>
             </>
         )}
