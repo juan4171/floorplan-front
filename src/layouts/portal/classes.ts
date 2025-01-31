@@ -1,30 +1,26 @@
-import { makeStyles } from '@mui/styles';
+import theme from "@/styles/muiTheme"
 
-const drawerWidth = 240;
-
-const useStyles = makeStyles(() => ({
-    mainLayout: {
+const classes = {
+    root: {
         display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
+        overflowX: 'hidden'
     },
-    mainContent: {
-        display: 'flex',
+    children: {
         flexGrow: 1,
+        p: 3,
+        pb: 4,
+        width: {
+            sm: '100%'//`calc(100% - ${240}px)`
+        },
+        backgroundColor: 'bg.light',
+        minHeight: '96vh',
+        [theme.breakpoints.down('md')]: {
+            minHeight: '93vh',
+        }
     },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerWidth,
-    },
-    pageContent: {
-        flexGrow: 1,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-}));
+    boxContainerChildren: {
+        width: '100vw'
+    }
+}
 
-export default useStyles;
+export default classes

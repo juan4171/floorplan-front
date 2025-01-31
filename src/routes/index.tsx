@@ -1,4 +1,4 @@
-import { ROUTER_BROWSER } from "../constants/routes";
+import { ROUTER_BROWSER } from "@/constants/routes";
 import { RouterProvider } from "react-router-dom";
 
 const Routes = () => {

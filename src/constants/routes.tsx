@@ -1,25 +1,43 @@
 import { createBrowserRouter } from "react-router-dom";
-import OrganizationsPage from "../pages/Organizations/OrganizationsPage";
-import ProjectsPage from "../pages/Projects/ProjectsPage";
-import HomePage from "../pages/Home/HomePage";
-import MainLayout from "../layouts/portal";
+import Error from "@/pages/Error";
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import HomeIcon from "@mui/icons-material/Home";
+import Organization from "@/pages/Organizations";
 
 export const ROUTER_BROWSER = createBrowserRouter([
-    
-    
+    {
+        path: "/login",
+        element: <Login />,
+    },
     {
         path: "/",
-        element: <MainLayout />, 
-        children: [
-            { path : "/", element: <HomePage /> },
-            { path : "/organizations", element: <OrganizationsPage /> },
-            { path : "/projects", element: <ProjectsPage /> },
-            { path : "/projects/organization/:organization", element: <ProjectsPage /> },
-        ]
-    }
+        element: <Home />,
+    },
+    {
+        path: "/organizaciones",
+        element: <Organization />,
+    },
+    {
+        path: "*",
+        element: <Error />,
+    },
 ]);
 
 export const ROUTES_NAVIGATION = [
-    { path : "/", label: "Home" },
-    { path : "/organizations", label: "Organizations" },
+    {
+        label: "Inicio",
+        path: "/",
+        reference: "",
+        icon: <HomeIcon />,
+        hidden: false,
+    },
+    {
+        label: "Organizaciones",
+        path: "/Organizaciones",
+        reference: "Organizaciones",
+        icon: <MenuBookIcon />,
+        hidden: false,
+    },
 ];

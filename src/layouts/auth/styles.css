@@ -1,0 +1,11 @@
+.logo-login {
+    width: 35%;
+    margin: 2em;
+    z-index: 1;
+}
+
+@media (width < 600px) {
+    .logo-login {
+        width: 300px;
+    }
+}

@@ -2,17 +2,23 @@ import { useEffect, useState } from "react";
 import { getOrganizations } from "../services/organizations/api";
 import { Organization } from "./interfaces";
 
+interface State {
+    data: Organization[];
+    isLoading: boolean;
+    errors: unknown;
+}
+
 export const useOrganizations = () => {
-    const [state, setState] = useState({
-        data: [] as Organization[],
+    const [state, setState] = useState<State>({
+        data: [],
         isLoading: true,
-        errors: null as unknown
+        errors: null
     });
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await getOrganizations();
+                const data: Organization[] = await getOrganizations();
                 setState({
                     data,
                     isLoading: false,

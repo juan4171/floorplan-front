@@ -1,0 +1,14 @@
+.imgLoaderBox {
+    height: 60px;
+    animation: rotateImg 1s linear infinite;
+}
+
+@keyframes rotateImg {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
